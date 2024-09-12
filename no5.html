@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #mulai, #timer {
+            margin: 10px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: lightgrey;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: lightseagreen;
+        }
+
+        button:disabled {
+            background-color: lightgray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div id="mulai">Hitung Mundur</div>
+    <div id="timer">10</div>
+    <button id="mulai-button">Mulai</button>
+    <button id="berhenti-button" disabled>Berhenti</button>
+
+    <script>
+        let waktuInterval;
+        let waktu = 10;
+
+        function mulaiWaktu() {
+            document.getElementById("mulai-button").disabled = true;
+            document.getElementById("berhenti-button").disabled = false;
+            timer = document.getElementById("timer")
+            timer.style.color = "black";
+
+            waktuInterval = setInterval(() => {
+                waktu--;
+                document.getElementById("timer").textContent = waktu;
+
+                if (waktu <= 0) {
+                    clearInterval(waktuInterval);
+                    document.getElementById("mulai-button").disabled = false;
+                    timer.innerHTML = "Waktu Habis";
+                    timer.style.color = "red";
+                    waktu = 11
+                }
+            }, 1000);
+        }
+
+        function berhentiWaktu() {
+            clearInterval(waktuInterval);
+            document.getElementById("mulai-button").disabled = false;
+            document.getElementById("berhenti-button").disabled = true;
+            document.getElementById("mulai").textContent = 'Hitung Mundur';
+        }
+
+        document.getElementById("mulai-button").addEventListener("click", mulaiWaktu);
+        document.getElementById("berhenti-button").addEventListener("click", berhentiWaktu);
+    </script>
+</body>
+</html>

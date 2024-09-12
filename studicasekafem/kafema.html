@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .kelassatu {
+            display: block;
+        }
+
+        .kelasdua,
+        .kelastiga {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form>
+            <div class="mb-3">
+                <label for="jenjangPendidikan" class="form-label">Jenjang Pendidikan :</label>
+                <select class="form-select" id="jenjangPendidikan" onchange="changeaja(this)">
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="kelas" class="form-label">Kelas :</label>
+                <select name="" class="form-select kelassatu" id="Pilihankesatu">
+                    <option value="1">Kelas 1</option>
+                    <option value="2">Kelas 2</option>
+                    <option value="3">Kelas 3</option>
+                    <option value="4">Kelas 4</option>
+                    <option value="5">Kelas 5</option>
+                    <option value="6">Kelas 6</option>
+                </select>
+                <select name="" class="form-select kelasdua" id="Pilihankedua">
+                    <option value="7">Kelas 7</option>
+                    <option value="8">Kelas 8</option>
+                    <option value="9">Kelas 9</option>
+                </select>
+                <select name="" class="form-select kelastiga" id="Pilihanketiga">
+                    <option value="10">Kelas 10</option>
+                    <option value="11">Kelas 11</option>
+                    <option value="12">Kelas 12</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function changeaja(e) {
+            if (e.value == "SD") {
+                document.getElementById("Pilihankesatu").style.display = "block";
+                document.getElementById("Pilihankedua").style.display = "none";
+                document.getElementById("Pilihanketiga").style.display = "none";
+            } else if (e.value == "SMP") {
+                document.getElementById("Pilihankesatu").style.display = "none";
+                document.getElementById("Pilihankedua").style.display = "block";
+                document.getElementById("Pilihanketiga").style.display = "none";
+            } else {
+                document.getElementById("Pilihankesatu").style.display = "none";
+                document.getElementById("Pilihankedua").style.display = "none";
+                document.getElementById("Pilihanketiga").style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

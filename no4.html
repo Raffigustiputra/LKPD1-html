@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .persegi {
+            width: 200px;
+            height: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="foto">
+        <img class="persegi" id ="imgWikrama" src="https://ppdb.smkwikrama.sch.id/assets/landing%20page/images/Gedung.jpg" style="display: none;" alt="">
+        <img class="persegi" id ="imgSmkn3" src="https://smkn3bgr.sch.id/img/Gedung-SMKN-3-Kota-Bogor.jpeg" style="display: none;" alt="">
+        <img class="persegi" id ="imgMan2" src="https://lh5.googleusercontent.com/p/AF1QipNmP-LC3HEVRYyAeJxEVa3Ptr8Y_1-KukQK-iQ" style="display: none;" alt="">
+    </div>
+
+    <label for="">Coba di ubah :</label>
+    <select onchange="changelabel(this)" name="image" id="image">
+        <option value="Wikrama" class="persegi">Wikrama Bogor</option>
+        <option value="Smkn3" class="persegi">SMKN 3 Bogor</option>
+        <option value="Man2" class="persegi">Man 2 Bogor</option>
+    </select>
+
+    <select onchange="changelabel(this)" name="bentuk" id="bentuk">
+        <option value="persegi" class="persegi">persegi</option>
+        <option value="lingkaran" class="persegi">lingkaran</option>
+        <option value="segitiga" class="persegi">segitiga</option>
+    </select>
+
+    <select onchange="changelabel(this)" name="warna" id="warna">
+        <option value="Merah" class="persegi">Merah</option>
+        <option value="Kuning" class="persegi">Kuning</option>
+        <option value="Hijau" class="persegi">Hijau</option>
+    </select>
+
+</body>
+<script>
+    function changelabel(e) {
+        if(e.value == 'Wikrama') {
+            document.getElementById('imgWikrama').style.display = 'block';
+            document.getElementById('imgSmkn3').style.display = 'none';
+            document.getElementById('imgMan2').style.display = 'none';
+        }else if (e.value == 'Smkn3') {
+            document.getElementById('imgWikrama').style.display = 'none';
+            document.getElementById('imgSmkn3').style.display = 'block';
+            document.getElementById('imgMan2').style.display = 'none';
+        }else if (e.value == 'Man2') {
+            document.getElementById('imgWikrama').style.display = 'none';
+            document.getElementById('imgSmkn3').style.display = 'none';
+            document.getElementById('imgMan2').style.display = 'block';
+        }
+
+        if(e.value == 'lingkaran'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.borderRadius = '50%';
+        });
+        }else if(e.value == 'persegi'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.borderRadius = '0%';
+        });
+        }else if(e.value == 'segitiga'){ 
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.clipPath = "polygon(50% 0%, 0% 100%, 100% 100%)";
+            img.style.backgroundSize = "cover";
+        });
+        }
+
+        if(e.value == 'Merah'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid red';
+        });
+        }else if(e.value == 'Kuning'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid yellow';
+        });
+        }else if(e.value == 'Hijau'){
+            document.querySelectorAll('img').forEach(function(img) {
+            img.style.border = '10px solid green';
+        });
+        }
+    }
+</script>
+</html>
